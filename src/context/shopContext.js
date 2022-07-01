@@ -64,7 +64,7 @@ class ShopProvider extends React.Component {
       <ShopContext.Provider
         value={{
           ...this.state,
-          fetchPAllProducts: this.fetchAllProducts,
+          fetchAllProducts: this.fetchAllProducts,
           fetchProductWithHandle: this.fetchProductWithHandle,
           addItemToCheckout: this.addItemToCheckout,
           removeLineItem: this.removeLineItem,
