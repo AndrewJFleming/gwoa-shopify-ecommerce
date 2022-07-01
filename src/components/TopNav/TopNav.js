@@ -12,18 +12,26 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import { ShopContext } from "../../context/shopContext";
 
-const TopNav = () => {
+const TopNav = ({handleDrawerToggle, drawerWidth}) => {
   const { openCart, openMenu, checkout } = useContext(ShopContext);
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+   
+          <AppBar
+      position="fixed"
+      sx={{
+        width: { sm: `calc(100% - ${drawerWidth}px)` },
+        ml: { sm: `${drawerWidth}px` },
+        backgroundColor: "error.main",
+      }}
+    >
         <Toolbar>
           <IconButton
             size="large"
             edge="start"
             color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
+            aria-label="open drawer"
+onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>
@@ -43,7 +51,7 @@ const TopNav = () => {
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-    </Box>
+    
   );
 };
 
