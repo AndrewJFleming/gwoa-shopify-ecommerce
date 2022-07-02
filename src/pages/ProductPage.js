@@ -33,14 +33,14 @@ const ProductPage = () => {
           margin: "0px",
         }}
       >
-        <Grid item xs={12} lg={6} key={product.id}>
+        <Grid item xs={12} lg={6} key={`${product.id}_image`}>
           <img
             style={{ width: "100%" }}
             src={product.images[0].src}
             alt={product.title}
           />
         </Grid>
-        <Grid item xs={12} lg={6} key={product.id}>
+        <Grid item xs={12} lg={6} key={`${product.id}_details`}>
           <Card>
             <CardHeader title={product.title} />
             <CardContent>
