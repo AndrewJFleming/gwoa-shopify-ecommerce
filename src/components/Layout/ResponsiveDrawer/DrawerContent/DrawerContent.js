@@ -2,6 +2,7 @@ import { Typography, Toolbar, Box, List } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import DrawerMenuItem from "./DrawerMenuItem/DrawerMenuItem";
+import Cart from "../../../Cart/Cart";
 
 const useStyles = makeStyles(() => {
   return {
@@ -12,7 +13,7 @@ const useStyles = makeStyles(() => {
       height: 65,
     },
     userIconContainer: {
-    //   color: theme.palette.success.main,
+      //   color: theme.palette.success.main,
       marginRight: 10,
       width: 35,
       height: 35,
@@ -22,7 +23,7 @@ const useStyles = makeStyles(() => {
       alignItems: "center",
     },
     toolbarUsername: {
-    //   color: theme.palette.success.main,
+      //   color: theme.palette.success.main,
     },
   };
 });
@@ -46,15 +47,15 @@ const DrawerContent = () => {
           </Typography>
         </Box>
       </Toolbar>
-      
-        <List>
-          <DrawerMenuItem
-            path="/cart"
-            icon={<ShoppingCartIcon />}
-            text="Cart"
-          />
-        </List>
-      
+
+      <List>
+        <DrawerMenuItem path="/cart" icon={<ShoppingCartIcon />} text="Cart" />
+      </List>
+      <Toolbar>
+        <Box sx={{ color: "#fff" }}>
+          <Cart />
+        </Box>
+      </Toolbar>
     </Box>
   );
 };

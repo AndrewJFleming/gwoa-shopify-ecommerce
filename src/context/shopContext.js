@@ -37,9 +37,23 @@ class ShopProvider extends React.Component {
     });
   };
 
-  addItemToCheckout = async () => {};
+  addItemToCheckout = async (variantId, quantity) => {
+    const lineItemsToAdd = [
+      { variantId: variantId, quantity: parseInt(quantity, 10) },
+    ];
+    const checkout = await client.checkout.addLineItems(
+      this.state.checkout.id,
+      lineItemsToAdd
+    );
+    this.setState({checkout: checkout})
+  };
 
-  removeLineItem = async (lineItemIdsToRemove) => {};
+  removeLineItem = async (lineItemIdsToRemove) => {
+    const checkoutId = this.state.checkout.id
+
+    client.checkout.removeLineItems(checkoutId, lineItemIdsToRemove)
+      .then(checkout => this.setState({ checkout }))
+  };
 
   fetchAllProducts = async () => {
     const products = await client.product.fetchAll();
@@ -71,7 +85,7 @@ class ShopProvider extends React.Component {
           closeCart: this.closeCart,
           openCart: this.openCart,
           closeMenu: this.closeMenu,
-          openMenu: this.openMenu
+          openMenu: this.openMenu,
         }}
       >
         {this.props.children}
