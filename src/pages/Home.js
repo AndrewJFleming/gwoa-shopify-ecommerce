@@ -14,7 +14,7 @@ import {
 import { ShopContext } from "../context/shopContext";
 
 const Home = () => {
-  const { fetchAllProducts, products } = useContext(ShopContext);
+  const { fetchAllProducts, addItemToCheckout, products } = useContext(ShopContext);
   useEffect(() => {
     fetchAllProducts();
   }, [fetchAllProducts]);
@@ -28,13 +28,15 @@ const Home = () => {
         spacing={3}
         sx={{
           width: "100%",
-          margin: "0px",
+          // margin: "0px",
         }}
       >
         {products.map((product) => (
           <Grid item xs={12} sm={12} md={6} lg={3} key={product.id}>
             <Card 
-            // sx={{ maxWidth: 345 }}
+            sx={{ 
+              // maxWidth: "345px"
+             }}
             >
               <Link
                 to={`/products/${product.handle}`}
@@ -80,7 +82,7 @@ const Home = () => {
                 <CardActions>
                   <Button
                     size="small"
-                    onClick={() => {}}
+                 onClick={() => addItemToCheckout(product.variants[0].id, 1)}
                     sx={{ color: "primary.main" }}
                   >
                     <ShoppingCartIcon /> <span>Add to Cart</span>

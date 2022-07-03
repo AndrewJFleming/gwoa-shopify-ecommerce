@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+
 import { CssBaseline, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import TopNav from "../TopNav/TopNav";
 import ResponsiveDrawer from "./ResponsiveDrawer/ResponsiveDrawer";
+import Footer from "../Footer/Footer";
 
 const useStyles = makeStyles(() => {
   return {
@@ -36,15 +38,18 @@ const Layout = ({ children, username }) => {
         mobileOpen={mobileOpen}
       />
       <Box
-        component="main"
+        component="div"
         sx={{
           flexGrow: 1,
-          p: 3,
+
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
         className={classes.pageMain}
       >
-        {children}
+        <Box component="main" p={2} style={{ marginBottom: "15px" }}>
+          {children}
+        </Box>
+        <Footer/>
       </Box>
     </Box>
   );

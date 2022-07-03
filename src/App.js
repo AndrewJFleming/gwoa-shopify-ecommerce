@@ -17,7 +17,6 @@ function App() {
             <Route path="/" element={<Home />} />
           </Routes>
         </Layout>
-        <div>Footer</div>
       </BrowserRouter>
     </div>
   );

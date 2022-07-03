@@ -2,10 +2,8 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import {
   AppBar,
-  Box,
   Toolbar,
   Typography,
-  Button,
   IconButton,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
