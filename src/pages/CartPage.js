@@ -12,7 +12,7 @@ import {
 
     return (
         checkout.lineItems?.length ? (
-          <div>
+          <div className="page_styles">
             <h2>Cart</h2>
             <Grid
               container

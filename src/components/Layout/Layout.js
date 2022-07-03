@@ -46,7 +46,7 @@ const Layout = ({ children, username }) => {
         }}
         className={classes.pageMain}
       >
-        <Box component="main" p={2} style={{ marginBottom: "15px" }}>
+        <Box component="main" style={{ marginBottom: "15px" }}>
           {children}
         </Box>
         <Footer/>

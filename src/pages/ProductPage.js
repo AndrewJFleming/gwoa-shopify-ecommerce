@@ -24,7 +24,7 @@ const ProductPage = () => {
 
   if (!product.title) return <div>Loading...</div>;
   return (
-    <div>
+    <div className="page_styles">
       <Grid
         container
         spacing={3}

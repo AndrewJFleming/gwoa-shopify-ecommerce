@@ -12,6 +12,7 @@ import {
   import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import { ShopContext } from "../context/shopContext";
+import Banner from "../components/Banner/Banner";
 
 const Home = () => {
   const { fetchAllProducts, addItemToCheckout, products } = useContext(ShopContext);
@@ -22,12 +23,19 @@ const Home = () => {
   if (!products) return <div>Loading...</div>;
 
   return (
-    <div>
+    <React.Fragment>
+
+   
+      <Banner/>
+    <div className="page_styles">
       <Grid
         container
         spacing={3}
         sx={{
           width: "100%",
+          
+          
+        
           // margin: "0px",
         }}
       >
@@ -94,6 +102,7 @@ const Home = () => {
         ))}
       </Grid>
     </div>
+    </React.Fragment>
   );
 };
 
