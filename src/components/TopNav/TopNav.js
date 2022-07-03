@@ -41,15 +41,18 @@ const TopNav = ({ handleDrawerToggle, drawerWidth }) => {
             Home
           </Typography>
         </Link>
+        <Link to="/cart">
         <IconButton
           size="large"
           // edge="start"
           color="inherit"
           aria-label="menu"
-          sx={{ mr: 2 }}
+          // sx={{ mr: 2 }}
         >
-          <ShoppingCartIcon />
+          <ShoppingCartIcon/>
         </IconButton>
+        </Link>
+          <span >({checkout.lineItems?.length})</span>
       </Toolbar>
     </AppBar>
   );
