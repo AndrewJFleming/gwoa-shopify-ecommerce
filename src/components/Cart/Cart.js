@@ -1,4 +1,5 @@
 import {
+  Box,
   Card,
   CardContent,
   CardMedia,
@@ -16,42 +17,55 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const { checkout, removeLineItem } = useContext(ShopContext);
 
-  return (
-  checkout.lineItems?.length ? (
-    <div>
-      <Grid
-        container
-        spacing={3}
-        sx={{
-          width: "100%",
-          margin: "0px",
-        }}
-      >
-        {checkout.lineItems.map((item) => (
-          <Grid item md={12} key={item.title}>
-            <h5>{item.title}</h5>
-            <h6>{item.variant.price}</h6>
-            <img
-              style={{ width: "100%" }}
-              src={item.variant.image.src}
-              alt={item.title}
-            />
+  return checkout.lineItems?.length ? (
+    <Box sx={{ color: "#fff", width: "100%", pl: "24px"}}>
+      {checkout.lineItems.map((item) => (
+        <Box
+          key={item.title}
+          sx={{
+            display: "flex",
+            width: "100%",
+            justifyContent: "space-between",
+            py: 1
+            
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              width: "100%",
+              justifyContent: "flex-start",
+            }}
+          >
+            {/* <Link to="/"> */}
+            <Typography>
+            <Link to={`/products/${item.variant.product.handle}`}>
+              {item.title}
+            </Link>
+            {/* &nbsp;
+            <span>x{item.quantity}</span> */}
+            </Typography>
+          </Box>
+          <Box
+            sx={{ display: "flex", width: "100%", justifyContent: "flex-end", alignItems: "center" }}
+          >
+            <Typography>${item.variant.price}</Typography>
             <Button onClick={() => removeLineItem(item.id)}>
               <DeleteIcon />
             </Button>
-          </Grid>
-        ))}
-      </Grid>
-      <Button variant="contained">
+          </Box>
+        </Box>
+      ))}
+
+      <Button variant="contained" sx={{mt: 2}}>
         <a style={{ color: "#fff" }} href={checkout.webUrl}>
           Checkout
         </a>
       </Button>
-    </div>
+    </Box>
   ) : (
-    <div>Cart is empty</div>
-  )
-  )
+    <Box>Cart is empty</Box>
+  );
 };
 
 export default Cart;

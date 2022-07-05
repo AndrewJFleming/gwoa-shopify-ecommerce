@@ -7,7 +7,7 @@ const Footer = () => {
     <Box
           component="div"
           style={{
-            backgroundColor: "red",
+            backgroundColor: "darkblue",
           }}
         >
           <Box
@@ -40,7 +40,7 @@ const Footer = () => {
             </Box>
           </Box>
 
-          <Box component="div">
+          <Box component="div" sx={{backgroundColor: "rgba(0, 0, 0, 0.5)"}}>
             <Typography
               textAlign="center"
               color="white"

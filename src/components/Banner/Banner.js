@@ -8,6 +8,7 @@ const BannerBGLink =
 const useStyles = makeStyles(() => {
   return {
     bannerContentWrap: {
+      backgroundColor: "blue",
       position: "relative",
       "&:before": {
         content: "' '",
