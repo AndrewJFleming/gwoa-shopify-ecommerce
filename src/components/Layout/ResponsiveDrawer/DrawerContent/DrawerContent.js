@@ -37,9 +37,9 @@ const DrawerContent = () => {
     <Box sx={{ overflow: "hidden" }}>
       <Toolbar className={classes.usernameToolbar}>
         <Box sx={{ display: "flex" }}>
-            <Box className={classes.userIconContainer}>
-              <ShoppingCartIcon />
-            </Box>
+          <Box className={classes.userIconContainer}>
+            <ShoppingCartIcon />
+          </Box>
           <Link to="/cart">
             <Typography variant="h6" className={classes.toolbarUsername}>
               My Cart
@@ -47,11 +47,7 @@ const DrawerContent = () => {
           </Link>
         </Box>
       </Toolbar>
-      {/* <Toolbar> */}
-
       <Cart />
-
-      {/* </Toolbar> */}
     </Box>
   );
 };

@@ -1,13 +1,7 @@
 import {
   Box,
-  Card,
-  CardContent,
-  CardMedia,
-  CardActions,
   Button,
   Typography,
-  CardHeader,
-  Grid,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import React, { useContext } from "react";
@@ -37,7 +31,6 @@ const Cart = () => {
               justifyContent: "flex-start",
             }}
           >
-            {/* <Link to="/"> */}
             <Typography>
             <Link to={`/products/${item.variant.product.handle}`}>
               {item.title}

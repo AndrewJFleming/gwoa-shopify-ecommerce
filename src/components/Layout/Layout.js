@@ -49,7 +49,7 @@ const Layout = ({ children, username }) => {
         <Box component="main" style={{ marginBottom: "15px" }}>
           {children}
         </Box>
-        <Footer/>
+        <Footer />
       </Box>
     </Box>
   );
