@@ -57,35 +57,30 @@ const Home = () => {
                     gutterBottom
                     variant="body2"
                     color="success.dark"
-                    component="div"
                   >
-                    ID: {product.id}
+                    ID: {product.id.split('/')[4]}
                   </Typography>
                   <Typography
-                    variant="subtitle1"
+                    variant="h6"
                     gutterBottom
-                    sx={{
-                      justifySelf: "center",
-                      alignSelf: "center",
-                      textAlign: "center",
-                      margin: "20px 0px 30px 0px",
-                    }}
                   >
-                    {"Price:  $" + product.variants[0].price}
+                    {"$" + product.variants[0].price}
                   </Typography>
-
+                </CardContent>
                   <CardActions>
                     <Button
                       size="small"
+                      variant="contained"
+                      color="info"
+                  
                       onClick={() =>
                         addItemToCheckout(product.variants[0].id, 1)
                       }
-                      sx={{ color: "primary.main" }}
+                      sx={{ color: "#fff", mb: 1 }}
                     >
-                      <ShoppingCartIcon /> <span>Add to Cart</span>
+                      Add to Cart
                     </Button>
                   </CardActions>
-                </CardContent>
               </Card>
             </Grid>
           ))}

@@ -9,7 +9,7 @@ import Footer from "../Footer/Footer";
 const useStyles = makeStyles(() => {
   return {
     pageMain: {
-      marginTop: "65px",
+      marginTop: "56px",
     },
   };
 });

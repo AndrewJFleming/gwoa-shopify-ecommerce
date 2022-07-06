@@ -27,13 +27,12 @@ const ProductPage = () => {
     <div className="page_styles">
       <Grid
         container
-        spacing={3}
         sx={{
           width: "100%",
           margin: "0px",
         }}
       >
-        <Grid item xs={12} lg={6} key={`${product.id}_image`}>
+        <Grid item xs={12} lg={6} key={`${product.id}_image`} >
           <img
             style={{ width: "100%" }}
             src={product.images[0].src}

@@ -1,4 +1,4 @@
-import { Typography, Toolbar, Box, List } from "@mui/material";
+import { Typography, Toolbar, Box, Button } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import DrawerMenuItem from "./DrawerMenuItem/DrawerMenuItem";
@@ -36,7 +36,7 @@ const DrawerContent = () => {
   return (
     <Box sx={{ overflow: "hidden" }}>
       <Toolbar className={classes.usernameToolbar}>
-        <Box sx={{ display: "flex" }}>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
           <Box className={classes.userIconContainer}>
             <ShoppingCartIcon />
           </Box>
