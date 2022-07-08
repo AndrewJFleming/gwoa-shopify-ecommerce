@@ -1,4 +1,5 @@
 import {
+  Box,
   Grid,
   Button,
   Card,
@@ -15,12 +16,15 @@ import { ShopContext } from "../context/shopContext";
 
 const ProductPage = () => {
   const { handle } = useParams();
-  const { fetchProductWithHandle, addItemToCheckout, product } =
+  const { fetchProductWithHandle, addItemToCheckout, product, checkout } =
     useContext(ShopContext);
 
   useEffect(() => {
     fetchProductWithHandle(handle);
   }, [fetchProductWithHandle, handle]);
+
+  // console.log(product.variants[0].id)
+  // console.log(checkout.lineItems[0].id)
 
   if (!product.title) return <div>Loading...</div>;
   return (
@@ -32,9 +36,9 @@ const ProductPage = () => {
           margin: "0px",
         }}
       >
-        <Grid item xs={12} lg={6} key={`${product.id}_image`} >
-          <img
-            style={{ width: "100%" }}
+        <Grid item xs={12} lg={6} key={`${product.id}_image`}>
+          <Box component="img"
+            sx={{ width: "100%", pr: {lg: 2} }}
             src={product.images[0].src}
             alt={product.title}
           />

@@ -8,6 +8,13 @@ const Footer = () => {
           component="div"
           style={{
             backgroundColor: "darkblue",
+            height: "300px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            position: "absolute",
+            bottom: 0,
+            width: "100%",
           }}
         >
           <Box
@@ -16,11 +23,13 @@ const Footer = () => {
               padding: "15px",
               display: "flex",
               justifyContent: "space-evenly",
+              alignItems: "center",
+              height: "100%"
             }}
           >
-            <Box component="div" sx={{}}>
+            <Box component="div" sx={{display: {xs: "none", sm: "block"}}}>
               <img
-                style={{ maxWidth: "300px" }}
+                style={{ maxHeight: "145px" }}
                 src="https://cdn.shopify.com/s/files/1/0472/5705/9496/files/Bath_Bomb_-_Product-5_-_trans_1.png?v=1610123549"
               />
             </Box>
@@ -48,7 +57,7 @@ const Footer = () => {
               borderTop="1px solid white"
               p="1rem"
             >
-              © Copyright www.gwoa.com
+              © Copyright Great Wall of Art
             </Typography>
           </Box>
         </Box>

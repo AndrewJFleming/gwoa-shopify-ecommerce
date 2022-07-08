@@ -25,21 +25,23 @@ const ImageWithText = ({ reverse, imgSrc, sectionText }) => {
       sx={{
         display: "flex",
         justifyContent: "space-between",
-        flexDirection: reversedSection,
         padding: "0 10px",
+        flexDirection: { xs: "column", sm: "column", md: reversedSection },
       }}
     >
       <Box
         component="div"
         sx={{
-          width: "50%",
+          width: {xs: "100%", sm: "100%", md: "50%"},
           backgroundColor: "lightblue",
           padding: "15px",
           textAlign: "center",
         }}
-        className={classes.centeringContainer}
+        // className={classes.centeringContainer}
       >
-        <Box component="div" className={classes.centeredContent}>
+        <Box component="div" 
+        // className={classes.centeredContent}
+        >
           <Typography variant="h4">ImageWithText</Typography>
           <Typography variant="h6">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
@@ -47,7 +49,7 @@ const ImageWithText = ({ reverse, imgSrc, sectionText }) => {
           </Typography>
         </Box>
       </Box>
-      <img style={{ width: "50%" }} src={imgSrc} alt={sectionText} />
+      <Box component="img" sx={{ width: {xs: "100%", sm: "100%", md: "50%"}}} src={imgSrc} alt={sectionText} />
     </Box>
   );
 };

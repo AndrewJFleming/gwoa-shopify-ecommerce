@@ -10,7 +10,13 @@ const useStyles = makeStyles(() => {
   return {
     pageMain: {
       marginTop: "56px",
+
+      position: "relative",
+      minHeight: "100vh"
     },
+    contentWrap: {
+      paddingBottom: "300px"
+    }
   };
 });
 
@@ -38,15 +44,14 @@ const Layout = ({ children, username }) => {
         mobileOpen={mobileOpen}
       />
       <Box
-        component="div"
+        component="main"
         sx={{
           flexGrow: 1,
-
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
         className={classes.pageMain}
       >
-        <Box component="main" style={{ marginBottom: "15px" }}>
+        <Box component="div" className={classes.contentWrap} style={{ marginBottom: "15px" }}>
           {children}
         </Box>
         <Footer />
