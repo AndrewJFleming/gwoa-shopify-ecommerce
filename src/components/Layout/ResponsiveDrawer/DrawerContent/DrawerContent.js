@@ -5,27 +5,37 @@ import DrawerMenuItem from "./DrawerMenuItem/DrawerMenuItem";
 import Cart from "../../../Cart/Cart";
 import { Link } from "react-router-dom";
 
-const useStyles = makeStyles(() => {
+const useStyles = makeStyles((theme) => {
   return {
+    drawerContentWrapper: {
+      postition: "relative",
+      "& a": {
+        color: theme.palette.common.white,
+        textDecoration: "underline",
+      },
+      "& a:hover": {
+        color: theme.palette.common.white,
+        textDecoration: "none",
+      },
+    },
     usernameToolbar: {
       display: "flex",
-      justifyContent: "space-between",
-      backgroundColor: "rgba(0, 0, 0, 0.4)",
-      height: 65,
-      color: "white",
+      backgroundColor: "rgba(0, 0, 0, 0.6)",
+      height: 64,
+      width: "100%",
     },
     userIconContainer: {
-      //   color: theme.palette.success.main,
+      color: theme.palette.common.white,
       // marginRight: 10,
       width: 35,
       height: 35,
-      borderRadius: 50,
       display: "flex",
-      justifyContent: "center",
       alignItems: "center",
     },
     toolbarUsername: {
       //   color: theme.palette.success.main,
+      fontFamily: "h1",
+      fontSize: "1.17em",
     },
   };
 });
@@ -34,16 +44,14 @@ const DrawerContent = () => {
   const classes = useStyles();
 
   return (
-    <Box sx={{ overflow: "hidden" }}>
+    <Box sx={{ overflow: "hidden" }} className={classes.drawerContentWrapper}>
       <Toolbar className={classes.usernameToolbar}>
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>
           <Box className={classes.userIconContainer}>
             <ShoppingCartIcon />
           </Box>
-          <Link to="/cart">
-            <Typography variant="h6" className={classes.toolbarUsername}>
-              My Cart
-            </Typography>
+          <Link to="/cart" className={classes.toolbarUsername}>
+            My Cart
           </Link>
         </Box>
       </Toolbar>

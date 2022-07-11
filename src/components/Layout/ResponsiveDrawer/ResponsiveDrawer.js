@@ -1,8 +1,9 @@
 import { Box, Drawer } from "@mui/material";
 import DrawerContent from "./DrawerContent/DrawerContent";
 
-const SvgBGLink =
-  "https://gist.githubusercontent.com/AndrewJFleming/3b1beae5c84b79adc425411572991a2e/raw/94e38925e6909316b248117450a151c09339c068/usernameToolbarBGSlender.svg";
+const SvgBGLink = "https://gist.githubusercontent.com/AndrewJFleming/a5f1505e4cc8f38e2e513f2d6cac43a9/raw/38e95ca881d63c5c7ee07adc53da93d6f6002497/egyptian_green.svg"
+// "https://gist.githubusercontent.com/AndrewJFleming/e49c39edfcb9f175327e070d80862ad8/raw/acd132f4c757ebf65481bb1d199887b7cc7fa8e8/egyptian.svg"
+  // "https://gist.githubusercontent.com/AndrewJFleming/436ac85152ae18edd1dd858bee8097e9/raw/e0f253a3bfd5609b49c181b42d811ccb63371b3f/illust-9.svg";
 
 const ResponsiveDrawer = ({
   drawerWidth,
@@ -28,7 +29,7 @@ const ResponsiveDrawer = ({
             boxSizing: "border-box",
             width: drawerWidth,
             borderRight: "1px solid #ecf6d0",
-            backgroundColor: "#110716",
+            backgroundColor: "#1c0100",
             backgroundImage: `url(${SvgBGLink})`,
             backgroundSize: "100%",
           },
@@ -43,7 +44,7 @@ const ResponsiveDrawer = ({
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: drawerWidth,
-            backgroundColor: "#110716",
+            backgroundColor: "success.dark",
             backgroundImage: `url(${SvgBGLink})`,
             backgroundSize: "100%",
           },

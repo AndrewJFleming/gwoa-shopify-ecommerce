@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <React.Fragment>
       <Banner />
-      <div className="page_styles">
+      <Box component="div" className="page_styles">
         <Grid container>
           {products.map((product) => (
             <Grid
@@ -56,7 +56,7 @@ const Home = () => {
                   <Typography
                     gutterBottom
                     variant="body2"
-                    color="success.dark"
+                    color="secondary.dark"
                   >
                     ID: {product.id.split('/')[4]}
                   </Typography>
@@ -71,8 +71,7 @@ const Home = () => {
                     <Button
                       size="small"
                       variant="contained"
-                      color="info"
-                  
+                      color="success"
                       onClick={() =>
                         addItemToCheckout(product.variants[0].id, 1)
                       }
@@ -85,19 +84,21 @@ const Home = () => {
             </Grid>
           ))}
         </Grid>
-        <Box sx={{marginTop: "3rem"}}>
+        <Box 
+        sx={{marginTop: "3rem"}}
+        >
           <ImageWithText
             reverse={true}
-            imgSrc="https://live.staticflickr.com/65535/52092076129_ea52f24095_k.jpg"
+            imgSrc="https://live.staticflickr.com/65535/52204528982_faafda6ee1_k.jpg"
             sectionText="Image accompanying text"
           />
           <ImageWithText
             reverse={false}
-            imgSrc="https://live.staticflickr.com/65535/52092076129_ea52f24095_k.jpg"
+            imgSrc="https://live.staticflickr.com/65535/52205539916_16b705d125_k.jpg"
             sectionText="Image accompanying text2"
           />
         </Box>
-      </div>
+      </Box>
     </React.Fragment>
   );
 };

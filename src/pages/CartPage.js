@@ -97,7 +97,7 @@ const CartPage = () => {
               </Typography>
             </CardContent>
           </Card>
-          <Button variant="contained">
+          <Button variant="contained" color="success">
             <a style={{ color: "#fff" }} href={checkout.webUrl}>
               Checkout
             </a>

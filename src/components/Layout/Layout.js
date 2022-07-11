@@ -6,16 +6,18 @@ import TopNav from "../TopNav/TopNav";
 import ResponsiveDrawer from "./ResponsiveDrawer/ResponsiveDrawer";
 import Footer from "../Footer/Footer";
 
-const useStyles = makeStyles(() => {
+const useStyles = makeStyles((theme) => {
   return {
     pageMain: {
       marginTop: "56px",
-
       position: "relative",
-      minHeight: "100vh"
+      minHeight: "100vh",
     },
     contentWrap: {
-      paddingBottom: "300px"
+      paddingBottom: "300px",
+      [theme.breakpoints.up("lg")]: {
+        marginBottom: "2em"
+      },
     }
   };
 });
@@ -51,7 +53,7 @@ const Layout = ({ children, username }) => {
         }}
         className={classes.pageMain}
       >
-        <Box component="div" className={classes.contentWrap} style={{ marginBottom: "15px" }}>
+        <Box component="div" className={classes.contentWrap}>
           {children}
         </Box>
         <Footer />

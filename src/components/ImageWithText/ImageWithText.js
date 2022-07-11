@@ -1,17 +1,23 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Container } from "@mui/material";
 import React from "react";
 import { makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles(() => {
+const useStyles = makeStyles((theme) => {
   return {
-    centeringContainer: {
-      position: "relative",
-    },
-    centeredContent: {
-      margin: "0",
-      position: "absolute",
-      top: "50%",
-      transform: "translateY(-50%)",
+    desktopContainer: {
+      width: "100%",
+      marginLeft: "auto",
+      boxSizing: "border-box",
+      marginRight: "auto",
+      display: "block",
+      paddingLeft: "24px",
+      paddingRight: "24px",
+      [theme.breakpoints.down("lg")]: {
+        marginLeft: "0",
+        marginRight: "0",
+        paddingLeft: "0",
+        paddingRight: "0",
+      },
     },
   };
 });
@@ -20,12 +26,14 @@ const ImageWithText = ({ reverse, imgSrc, sectionText }) => {
   const reversedSection = reverse ? "row-reverse" : "row";
   const classes = useStyles();
   return (
+    // <Container>
     <Box
       component="div"
+      className={classes.desktopContainer}
       sx={{
         display: "flex",
         justifyContent: "space-between",
-        padding: "0 10px",
+        // p: { xs: "0", sm: "0", md: "0", lg: "0 10px" },
         flexDirection: { xs: "column", sm: "column", md: reversedSection },
       }}
     >
@@ -33,7 +41,8 @@ const ImageWithText = ({ reverse, imgSrc, sectionText }) => {
         component="div"
         sx={{
           width: {xs: "100%", sm: "100%", md: "50%"},
-          backgroundColor: "lightblue",
+          backgroundColor: "error.light",
+          color: "#fff",
           padding: "15px",
           textAlign: "center",
         }}
@@ -51,6 +60,7 @@ const ImageWithText = ({ reverse, imgSrc, sectionText }) => {
       </Box>
       <Box component="img" sx={{ width: {xs: "100%", sm: "100%", md: "50%"}}} src={imgSrc} alt={sectionText} />
     </Box>
+  // </Container>
   );
 };
 
