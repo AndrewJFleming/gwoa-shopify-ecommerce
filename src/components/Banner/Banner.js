@@ -8,7 +8,7 @@ const BannerBGLink =
 const useStyles = makeStyles((theme) => {
   return {
     bannerContentWrap: {
-      backgroundColor: theme.palette.warning.light,
+      backgroundColor: theme.palette.error.dark,
       position: "relative",
       "&:before": {
         content: "' '",
@@ -42,7 +42,7 @@ const Banner = () => {
   return (
     <Box className={classes.bannerContentWrap}>
       <Box className={classes.bannerContent}>
-        <Typography variant="h2" sx={{color: "common.black"}}>Welcome</Typography>
+        <Typography variant="h2" sx={{color: "common.white"}}>Welcome</Typography>
         <Button color="primary" variant="contained">Test</Button>
       </Box>
     </Box>

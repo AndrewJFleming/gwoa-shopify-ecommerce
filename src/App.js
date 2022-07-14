@@ -43,8 +43,8 @@ const customTheme = createTheme({
       dark: "#1c0100",
     },
     warning: {
-      main: "#d0cbab",
-      light: "#beba6e",
+      main: "#beba6e",
+      light: "#d0cbab",
       dark: "#7a7d3d",
     },
     success: {

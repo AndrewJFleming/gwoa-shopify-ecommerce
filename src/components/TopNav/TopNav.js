@@ -40,9 +40,13 @@ const useStyles = makeStyles((theme) => {
       fontFamily: "PT Sans Narrow",
       fontWeight: 700,
       letterSpacing: ".3rem",
-      color: "inherit",
+      color: theme.palette.error.dark,
       whiteSpace: "no-wrap",
       fontSize: "1.5em",
+      color: theme.palette.error.dark,
+      "&:hover": {
+        color: theme.palette.error.dark,
+      },
     },
     //Style override for medium logo
     headerLogoMd: {
@@ -93,7 +97,7 @@ const TopNav = ({ handleDrawerToggle, drawerWidth }) => {
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
-          backgroundColor: "error.main",
+          backgroundColor: "success.light",
         }}
       >
         <Container maxWidth="xl">
@@ -106,6 +110,8 @@ const TopNav = ({ handleDrawerToggle, drawerWidth }) => {
                   display: { xs: "none", md: "flex" },
                   mr: 1,
                   opacity: "0.5",
+                  
+                  filter: "invert(100%)"
                 }}
                 src={logoImage}
               />
@@ -125,8 +131,7 @@ const TopNav = ({ handleDrawerToggle, drawerWidth }) => {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleDrawerToggle}
-                color="inherit"
-                sx={{ mr: 2, display: { sm: "none" } }}
+                sx={{ color: "error.dark", mr: 2, display: { sm: "none" } }}
               >
                 <ShoppingCartIcon />
               </IconButton>
@@ -139,6 +144,8 @@ const TopNav = ({ handleDrawerToggle, drawerWidth }) => {
                   display: { xs: "flex", md: "none" },
                   mr: 1,
                   opacity: "0.5",
+                  
+                  filter: "invert(100%)"
                 }}
                 src={logoImage}
               />
@@ -152,7 +159,7 @@ const TopNav = ({ handleDrawerToggle, drawerWidth }) => {
                   <Button
                     key={page.title}
                     onClick={handleCloseNavMenu}
-                    sx={{ color: "white", display: "block" }}
+                    sx={{ color: "common.black", display: "block" }}
                   >
                     {page.title}
                   </Button>
