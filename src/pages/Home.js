@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
+  Container,
   Grid,
   Box,
   Button,
@@ -11,24 +12,44 @@ import {
   Typography,
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { makeStyles } from "@mui/styles";
 
 import { ShopContext } from "../context/shopContext";
 import Banner from "../components/Banner/Banner";
 import ImageWithText from "../components/ImageWithText/ImageWithText";
 
+
+const useStyles = makeStyles((theme) => {
+  return {
+    desktopContainer: {
+      [theme.breakpoints.down("lg")]: {
+        marginLeft: "0!important",
+        marginRight: "0!important",
+        paddingLeft: "0!important",
+        paddingRight: "0!important",
+      },
+    },
+  };
+});
+
 const Home = () => {
   const { fetchAllProducts, addItemToCheckout, products } =
-    useContext(ShopContext);
+  useContext(ShopContext);
   useEffect(() => {
     fetchAllProducts();
   }, [fetchAllProducts]);
-
+  
+  const classes = useStyles();
   if (!products) return <div>Loading...</div>;
+  
 
   return (
     <React.Fragment>
       <Banner />
       <Box component="div" className="page_styles">
+        <Container
+      className={classes.desktopContainer}
+        >
         <Grid container>
           {products.map((product) => (
             <Grid
@@ -86,18 +107,19 @@ const Home = () => {
         </Grid>
         <Box 
         sx={{marginTop: "3rem"}}
-        >
+      >
           <ImageWithText
             reverse={true}
             imgSrc="https://live.staticflickr.com/65535/52204528982_faafda6ee1_k.jpg"
             sectionText="Image accompanying text"
-          />
+            />
           <ImageWithText
             reverse={false}
             imgSrc="https://live.staticflickr.com/65535/52205539916_16b705d125_k.jpg"
             sectionText="Image accompanying text2"
-          />
+            />
         </Box>
+        </Container>
       </Box>
     </React.Fragment>
   );
