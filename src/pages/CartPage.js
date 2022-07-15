@@ -6,7 +6,9 @@ import {
   Typography,
   CardMedia,
   CardContent,
+  CardActions,
   IconButton,
+  Container
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -21,9 +23,6 @@ const useStyles = makeStyles((theme) => {
       display: "flex",
       width: "100%",
       flexDirection: "column",
-      // [theme.breakpoints.down("md")]: {
-      //   width: "150px",
-      // },
     },
     buttonWrapper: {
       display: "flex",
@@ -40,19 +39,26 @@ const CartPage = () => {
   const classes = useStyles();
 
   return checkout.lineItems?.length ? (
-    <Box className="page_styles">
+    <Container sx={{py: 2}}>
       <Typography variant="h4">Cart</Typography>
       <Grid container mt={2}>
-        <Grid item xs={12} sm={12} md={7} lg={8} sx={{pr: {xs:0, sm:0, md:2, lg:2}, mb: 2}}>
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={7}
+          lg={8}
+          sx={{ pr: { xs: 0, sm: 0, md: 2, lg: 2 }, mb: 2 }}
+        >
           {checkout.lineItems.map((item) => (
-            <Card sx={{ display: "flex", marginBottom: 2 }}>
+            <Card sx={{ display: "flex", marginBottom: 2, height: 151, boxSizing: "border-box" }}>
               <Link to={`/products/${item.variant.product.handle}`}>
-              <CardMedia
-                component="img"
-                sx={{ width: 151 }}
-                image={item.variant.image.src}
-                alt={item.title}
-              />
+                <CardMedia
+                  component="img"
+                  sx={{ width: 151, height: 151 }}
+                  image={item.variant.image.src}
+                  alt={item.title}
+                />
               </Link>
               <Box className={classes.contentWrapper}>
                 <CardContent sx={{ flex: "1 0 auto", pb: 0 }}>
@@ -76,35 +82,40 @@ const CartPage = () => {
           ))}
         </Grid>
         <Grid item xs={12} sm={12} md={5} lg={4}>
-          <Card sx={{ display: "flex", mb: 2 }}>
-            <CardContent sx={{ flex: "1 0 auto", pb: 0 }}>
-              <Typography variant="h6" sx={{ display: "flex", justifyContent: "space-between" }}>
-                <span>
-                  Subtotal:&nbsp;
-                </span>
-                <span>
-                  ${checkout.subtotalPrice}
-                </span>
+          <Card sx={{  mb: 2 }}>
+            <CardContent sx={{  pb: 0 }}>
+              <Typography
+                variant="h6"
+                sx={{ display: "flex", justifyContent: "space-between" }}
+              >
+                <span>Subtotal:&nbsp;</span>
+                <span>${checkout.subtotalPrice}</span>
               </Typography>
-              <hr/>
-              <Typography variant="h6" sx={{ fontWeight: "bold", display: "flex", justifyContent: "space-between" }}>
-                <span>
-                  Total:&nbsp;
-                </span>
-                <span>
-                  ${checkout.totalPrice}
-                </span>
+              <hr />
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: "bold",
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <span>Total:&nbsp;</span>
+                <span>${checkout.totalPrice}</span>
               </Typography>
             </CardContent>
-          </Card>
+            <CardActions sx={{pt: 2}}>
           <Button variant="contained" color="success">
             <a style={{ color: "#fff" }} href={checkout.webUrl}>
               Checkout
             </a>
           </Button>
+
+            </CardActions>
+          </Card>
         </Grid>
       </Grid>
-    </Box>
+    </Container>
   ) : (
     <Box>Cart is empty</Box>
   );

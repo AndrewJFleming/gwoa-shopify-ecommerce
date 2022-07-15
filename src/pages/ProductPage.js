@@ -5,14 +5,29 @@ import {
   Card,
   CardActions,
   CardContent,
-  CardMedia,
+  Container,
   Typography,
   CardHeader,
 } from "@mui/material";
 import React, { useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
+import { makeStyles } from "@mui/styles";
 
 import { ShopContext } from "../context/shopContext";
+
+const useStyles = makeStyles((theme) => {
+  return {
+    desktopContainer: {
+      marginBottom: "2rem",
+      [theme.breakpoints.down("md")]: {
+        marginLeft: "0!important",
+        marginRight: "0!important",
+        paddingLeft: "0!important",
+        paddingRight: "0!important",
+      },
+    },
+  };
+});
 
 const ProductPage = () => {
   const { handle } = useParams();
@@ -23,12 +38,11 @@ const ProductPage = () => {
     fetchProductWithHandle(handle);
   }, [fetchProductWithHandle, handle]);
 
-  // console.log(product.variants[0].id)
-  // console.log(checkout.lineItems[0].id)
+  const classes = useStyles();
 
   if (!product.title) return <div>Loading...</div>;
   return (
-    <div className="page_styles">
+    <Container className={classes.desktopContainer}>
       <Grid
         container
         sx={{
@@ -37,11 +51,34 @@ const ProductPage = () => {
         }}
       >
         <Grid item xs={12} lg={6} key={`${product.id}_image`}>
-          <Box component="img"
+          <Box
+            sx={{
+              w: "300px",
+              h: "300px",
+              overflow: "hidden",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "rgba(0, 0, 0, 0.75)",
+              mr: { lg: 2 }
+            }}
+          >
+            <Box
+              component="img"
+              sx={{
+                height: "600px",
+                width: "auto",
+                // pr: { lg: 2 },
+              }}
+              src={product.images[0].src}
+              alt={product.title}
+            />
+          </Box>
+          {/* <Box component="img"
             sx={{ width: "100%", pr: {lg: 2} }}
             src={product.images[0].src}
             alt={product.title}
-          />
+          /> */}
         </Grid>
         <Grid item xs={12} lg={6} key={`${product.id}_details`}>
           <Card>
@@ -51,12 +88,16 @@ const ProductPage = () => {
               <Typography variant="body">{product.description}</Typography>
             </CardContent>
             <CardActions>
-              <Button onClick={() => addItemToCheckout(product.variants[0].id, 1)}>Add To Cart</Button>
+              <Button
+                onClick={() => addItemToCheckout(product.variants[0].id, 1)}
+              >
+                Add To Cart
+              </Button>
             </CardActions>
           </Card>
         </Grid>
       </Grid>
-    </div>
+    </Container>
   );
 };
 

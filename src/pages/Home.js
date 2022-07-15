@@ -18,7 +18,6 @@ import { ShopContext } from "../context/shopContext";
 import Banner from "../components/Banner/Banner";
 import ImageWithText from "../components/ImageWithText/ImageWithText";
 
-
 const useStyles = makeStyles((theme) => {
   return {
     desktopContainer: {
@@ -34,60 +33,54 @@ const useStyles = makeStyles((theme) => {
 
 const Home = () => {
   const { fetchAllProducts, addItemToCheckout, products } =
-  useContext(ShopContext);
+    useContext(ShopContext);
   useEffect(() => {
     fetchAllProducts();
   }, [fetchAllProducts]);
-  
+
   const classes = useStyles();
   if (!products) return <div>Loading...</div>;
-  
 
   return (
     <React.Fragment>
       <Banner />
       <Box component="div" className="page_styles">
-        <Container
-      className={classes.desktopContainer}
-        >
-        <Grid container>
-          {products.map((product) => (
-            <Grid
-              item
-              xs={12}
-              sm={12}
-              md={6}
-              lg={3}
-              key={product.id}
-              sx={{ padding: "10px" }}
-            >
-              <Card>
-                <Link to={`/products/${product.handle}`}>
-                  <CardMedia
-                    component="img"
-                    height="240"
-                    image={product.images[0].src}
-                    alt={"A preview of " + product.title}
-                  />
-                </Link>
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {product.title}
-                  </Typography>
-                  <Typography
-                    gutterBottom
-                    variant="body2"
-                    color="secondary.dark"
-                  >
-                    ID: {product.id.split('/')[4]}
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    gutterBottom
-                  >
-                    {"$" + product.variants[0].price}
-                  </Typography>
-                </CardContent>
+        <Container className={classes.desktopContainer}>
+          <Grid container>
+            {products.map((product) => (
+              <Grid
+                item
+                xs={12}
+                sm={12}
+                md={6}
+                lg={3}
+                key={product.id}
+                sx={{ padding: "10px" }}
+              >
+                <Card>
+                  <Link to={`/products/${product.handle}`}>
+                    <CardMedia
+                      component="img"
+                      height="240"
+                      image={product.images[0].src}
+                      alt={"A preview of " + product.title}
+                    />
+                  </Link>
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {product.title}
+                    </Typography>
+                    <Typography
+                      gutterBottom
+                      variant="body2"
+                      color="secondary.dark"
+                    >
+                      ID: {product.id.split("/")[4]}
+                    </Typography>
+                    <Typography variant="h6" gutterBottom>
+                      {"$" + product.variants[0].price}
+                    </Typography>
+                  </CardContent>
                   <CardActions>
                     <Button
                       size="small"
@@ -101,24 +94,22 @@ const Home = () => {
                       Add to Cart
                     </Button>
                   </CardActions>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-        <Box 
-        sx={{marginTop: "3rem"}}
-      >
-          <ImageWithText
-            reverse={true}
-            imgSrc="https://live.staticflickr.com/65535/52204528982_faafda6ee1_k.jpg"
-            sectionText="Image accompanying text"
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+          <Box sx={{ marginTop: "3rem" }}>
+            <ImageWithText
+              reverse={true}
+              imgSrc="https://live.staticflickr.com/65535/52204528982_faafda6ee1_k.jpg"
+              sectionText="Image accompanying text"
             />
-          <ImageWithText
-            reverse={false}
-            imgSrc="https://live.staticflickr.com/65535/52205539916_16b705d125_k.jpg"
-            sectionText="Image accompanying text2"
+            <ImageWithText
+              reverse={false}
+              imgSrc="https://live.staticflickr.com/65535/52205539916_16b705d125_k.jpg"
+              sectionText="Image accompanying text2"
             />
-        </Box>
+          </Box>
         </Container>
       </Box>
     </React.Fragment>

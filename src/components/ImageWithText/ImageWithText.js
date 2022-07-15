@@ -1,4 +1,4 @@
-import { Box, Typography, Container } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 
 const ImageWithText = ({ reverse, imgSrc, sectionText }) => {
@@ -19,7 +19,8 @@ const ImageWithText = ({ reverse, imgSrc, sectionText }) => {
           width: {xs: "100%", sm: "100%", md: "50%"},
           backgroundColor: "warning.dark",
           color: "common.white",
-          padding: "15px",
+          p: "15px",
+          py: {xs: "25px", sm: "25px"},
           textAlign: "center",
         }}
       >
