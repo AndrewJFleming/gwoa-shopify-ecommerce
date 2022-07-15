@@ -30,6 +30,7 @@ const ResponsiveDrawer = ({
             backgroundColor: "success.dark",
             backgroundImage: `url(${SvgBGLink})`,
             backgroundSize: "100%",
+            backgroundPosition: "0% 67px",
           },
         }}
       >
@@ -45,6 +46,7 @@ const ResponsiveDrawer = ({
             backgroundColor: "success.dark",
             backgroundImage: `url(${SvgBGLink})`,
             backgroundSize: "100%",
+            backgroundPosition: "0% 67px",
           },
         }}
         open

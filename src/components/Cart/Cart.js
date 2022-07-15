@@ -49,8 +49,6 @@ const Cart = () => {
           <Box
             sx={{
               display: "flex",
-              // width: "100%",
-              // justifyContent: "flex-end",
               alignItems: "center",
             }}
           >
@@ -62,8 +60,8 @@ const Cart = () => {
         </Box>
       ))}
 
-      <Button variant="contained" color="success" className={classes.drawerCheckoutButton} sx={{ mt: 2 }}>
-        <a style={{ color: "#fff" }} href={checkout.webUrl}>
+      <Button variant="contained" color="warning" className={classes.drawerCheckoutButton} sx={{ mt: 2 }}>
+        <a style={{ color: "#000" }} href={checkout.webUrl}>
           Checkout
         </a>
       </Button>

@@ -16,13 +16,18 @@ const useStyles = makeStyles((theme) => {
     contentWrap: {
       paddingBottom: "300px",
       [theme.breakpoints.up("lg")]: {
-        marginBottom: "2em"
+        marginBottom: "2em",
       },
-    }
+    },
   };
 });
 
 const drawerWidth = 240;
+
+const pages = [
+  { title: "Cart", path: "cart" },
+  { title: "About", path: "about" },
+];
 
 const Layout = ({ children, username }) => {
   const classes = useStyles();
@@ -39,6 +44,7 @@ const Layout = ({ children, username }) => {
       <TopNav
         handleDrawerToggle={handleDrawerToggle}
         drawerWidth={drawerWidth}
+        pages={pages}
       />
       <ResponsiveDrawer
         handleDrawerToggle={handleDrawerToggle}
@@ -56,7 +62,7 @@ const Layout = ({ children, username }) => {
         <Box component="div" className={classes.contentWrap}>
           {children}
         </Box>
-        <Footer />
+        <Footer pages={pages} />
       </Box>
     </Box>
   );
