@@ -20,11 +20,7 @@ import logoImage from "../../assets/GWoA logo, alt.png";
 import { ShopContext } from "../../context/shopContext";
 
 import { makeStyles } from "@mui/styles";
-
-const pages = [
-  { title: "Cart", path: "cart" },
-  { title: "About", path: "about" },
-];
+import LogoLink from "./LogoLink/LogoLink";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -40,12 +36,12 @@ const useStyles = makeStyles((theme) => {
       fontFamily: "PT Sans Narrow",
       fontWeight: 700,
       letterSpacing: ".3rem",
-      color: theme.palette.error.dark,
       whiteSpace: "no-wrap",
       fontSize: "1.5em",
-      color: theme.palette.error.dark,
+      color: theme.palette.error.main,
       "&:hover": {
-        color: theme.palette.error.dark,
+        color: theme.palette.common.black,
+        textDecoration: "none"
       },
     },
     //Style override for medium logo
@@ -67,7 +63,7 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-const TopNav = ({ handleDrawerToggle, drawerWidth }) => {
+const TopNav = ({ handleDrawerToggle, drawerWidth, pages }) => {
   const { openCart, openMenu, checkout } = useContext(ShopContext);
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -102,21 +98,7 @@ const TopNav = ({ handleDrawerToggle, drawerWidth }) => {
       >
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <Link to="/">
-              <Box
-                component="img"
-                sx={{
-                  width: "40px",
-                  display: { xs: "none", md: "flex" },
-                  mr: 1,
-                  opacity: "0.5",
-                  
-                  filter: "invert(100%)"
-                }}
-                src={logoImage}
-              />
-            </Link>
-
+                <LogoLink XSDisplay="none" MDDisplay="flex"/>
             <Link
               to="/"
               className={`${classes.headerLogo} ${classes.headerLogoMd}`}
@@ -136,24 +118,14 @@ const TopNav = ({ handleDrawerToggle, drawerWidth }) => {
                 <ShoppingCartIcon />
               </IconButton>
             </Box>
-            <Link to="/">
-              <Box
-                component="img"
-                sx={{
-                  width: "40px",
-                  display: { xs: "flex", md: "none" },
-                  mr: 1,
-                  opacity: "0.5",
-                  
-                  filter: "invert(100%)"
-                }}
-                src={logoImage}
-              />
-            </Link>
+            <LogoLink XSDisplay="flex" MDDisplay="none"/>
             <Link to="/" className={classes.headerLogo}>
               Great Wall of Art
             </Link>
-            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }} className={classes.TopNavLinkItem}>
+            <Box
+              sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
+              className={classes.TopNavLinkItem}
+            >
               {pages.map((page) => (
                 <Link to={`/${page.path}`}>
                   <Button
@@ -167,7 +139,7 @@ const TopNav = ({ handleDrawerToggle, drawerWidth }) => {
               ))}
             </Box>
 
-            <Box sx={{ flexGrow: 0 }}>
+            <Box sx={{ flexGrow: 0, display: { xs: "flex", md: "none" }  }}>
               <Tooltip title="Page Links">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <MenuIcon />
