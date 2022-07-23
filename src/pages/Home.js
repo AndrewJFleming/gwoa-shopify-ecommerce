@@ -41,8 +41,10 @@ const Home = () => {
   const classes = useStyles();
   if (!products) return <div>Loading...</div>;
 
+
   return (
     <React.Fragment>
+
       <Banner />
       <Box component="div" className="page_styles">
         <Container className={classes.desktopContainer}>

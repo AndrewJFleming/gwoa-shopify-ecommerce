@@ -82,7 +82,7 @@ const CartPage = () => {
           ))}
         </Grid>
         <Grid item xs={12} sm={12} md={5} lg={4}>
-          <Card sx={{  mb: 2 }}>
+          <Card sx={{  mb: 2, backgroundColor: "warning.dark", color: "common.white" }}>
             <CardContent sx={{  pb: 0 }}>
               <Typography
                 variant="h6"
@@ -105,7 +105,7 @@ const CartPage = () => {
               </Typography>
             </CardContent>
             <CardActions sx={{pt: 2}}>
-          <Button variant="contained" color="success">
+          <Button variant="contained" color="error">
             <a style={{ color: "#fff" }} href={checkout.webUrl}>
               Checkout
             </a>
